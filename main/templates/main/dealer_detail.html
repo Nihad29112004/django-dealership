@@ -1,0 +1,12 @@
+<h1>{{ dealer.name }}</h1>
+<p>Şəhər: {{ dealer.city }}</p>
+<p>Status: {{ dealer.status }}</p>
+
+<h2>İncelemeler</h2>
+<ul>
+  {% for review in reviews %}
+    <li><strong>{{ review.author }}</strong> (Rating: {{ review.rating }})<br>{{ review.comment }}</li>
+  {% empty %}
+    <li>Bu bayiye heç bir inceleme yoxdur.</li>
+  {% endfor %}
+</ul>

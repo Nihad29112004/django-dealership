@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ana Səhifə - Bayilər</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <p>Salam, {{ user.username }}!</p>
+        <button>İnceleme Gönder</button>
+    {% else %}
+        <p>Zəhmət olmasa <a href="{% url 'login' %}">daxil ol</a> və ya <a href="{% url 'register' %}">qeydiyyatdan keç</a>.</p>
+    {% endif %}
+
+    <h1>Bayilər</h1>
+    <ul>
+        {% for dealer in dealers %}
+            <li>{{ dealer.name }} - {{ dealer.city }}</li>
+        {% empty %}
+            <li>Heç bir bayi yoxdur.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
